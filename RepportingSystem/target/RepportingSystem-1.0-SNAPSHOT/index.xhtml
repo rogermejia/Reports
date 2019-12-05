@@ -10,57 +10,70 @@
         Hello from Facelets
         <br />
         <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" />
-        <h:form>
-            <p:dataTable var="s" value="#{shippersControl.listShip}">
-                <p:column headerText="ID">
-                    <p:outputLabel value="#{s.shipperID}"/>
-                </p:column>
-                <p:column headerText="Company Name">
-                    <p:outputLabel value="#{s.companyName}"/>
-                </p:column>
-                <p:column headerText="Phone">
-                    <p:outputLabel value="#{s.phone}"/>
-                </p:column>
-            </p:dataTable>
-        </h:form>
-
-        <h:form>
-            <p:dataTable var="cat" value="#{shippersControl.listCategories}">
-                <p:column headerText="ID">
-                    <p:outputLabel value="#{cat.categoryID}"/>
-                </p:column>
-                <p:column headerText="Category Name">
-                    <p:outputLabel value="#{cat.categoryName}"/>
-                </p:column>
-                <p:column headerText="Description">
-                    <p:outputLabel value="#{cat.description}"/>
-                </p:column>
-            </p:dataTable>
-        </h:form>
-
-        <h:form>
-            <p:dataTable var="p" value="#{shippersControl.listProducts}">
-                <p:column headerText="ID">
-                    <p:outputLabel value="#{p.productID}"/>
-                </p:column>
-                <p:column headerText="Product Name">
-                    <p:outputLabel value="#{p.productName}"/>
-                </p:column>
-                <p:column headerText="Category">
-                    <p:outputLabel value="#{p.categoryID.categoryName}"/>
-                </p:column>
-                <p:column headerText="Supplier">
-                    <p:outputLabel value="#{p.supplierID.companyName}"/>
-                </p:column>
-                <p:column headerText="Quantity Per Unit">
-                    <p:outputLabel value="#{p.quantityPerUnit}"/>
-                </p:column>
-                <p:column headerText="Discontinued">
-                    <p:outputLabel value="#{p.discontinued}"/>
-                </p:column>
-            </p:dataTable>
-        </h:form>
-
+        <div class="Container">
+            <div class="row">
+                <div class="col">
+                    <h:form>
+                        <p:dataTable var="s" value="#{shippersControl.listShip}">
+                            <p:column headerText="ID">
+                                <p:outputLabel value="#{s.shipperID}"/>
+                            </p:column>
+                            <p:column headerText="Company Name">
+                                <p:outputLabel value="#{s.companyName}"/>
+                            </p:column>
+                            <p:column headerText="Phone">
+                                <p:outputLabel value="#{s.phone}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col">
+                    <h:form>
+                        <p:dataTable var="cat" value="#{shippersControl.listCategories}">
+                            <p:column headerText="ID">
+                                <p:outputLabel value="#{cat.categoryID}"/>
+                            </p:column>
+                            <p:column headerText="Category Name">
+                                <p:outputLabel value="#{cat.categoryName}"/>
+                            </p:column>
+                            <p:column headerText="Description">
+                                <p:outputLabel value="#{cat.description}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </div>
+            </div>
+            <br/>
+            <div class="row">
+                <div class="col">
+                    <h:form>
+                        <p:dataTable var="p" value="#{shippersControl.listProducts}">
+                            <p:column headerText="ID">
+                                <p:outputLabel value="#{p.productID}"/>
+                            </p:column>
+                            <p:column headerText="Product Name">
+                                <p:outputLabel value="#{p.productName}"/>
+                            </p:column>
+                            <p:column headerText="Category">
+                                <p:outputLabel value="#{p.categoryID.categoryName}"/>
+                            </p:column>
+                            <p:column headerText="Supplier">
+                                <p:outputLabel value="#{p.supplierID.companyName}"/>
+                            </p:column>
+                            <p:column headerText="Quantity Per Unit">
+                                <p:outputLabel value="#{p.quantityPerUnit}"/>
+                            </p:column>
+                            <p:column headerText="Discontinued">
+                                <p:outputLabel value="#{p.discontinued}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </div>
+            </div>
+        </div>
     </h:body>
 </html>
 
