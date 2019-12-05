@@ -6,6 +6,8 @@
 package com.report.system.dao;
 
 import com.report.system.entities.Categories;
+import com.report.system.entities.OrderDetails;
+import com.report.system.entities.Orders;
 import com.report.system.entities.Products;
 import com.report.system.entities.Shippers;
 import java.util.ArrayList;
@@ -15,47 +17,64 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-
-
 /**
  *
  * @author rogelio.mejia
  */
-
 @Stateless
 public class CategoriesDao {
+
     private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("com.report_RepportingSystem_war_1.0-SNAPSHOTPU");
     private final EntityManager em = emf.createEntityManager();
 
-    
-    public List<Categories> selectAllCategories(){
+    public List<Categories> selectAllCategories() {
         List<Categories> list = new ArrayList<Categories>();
-        try{
+        try {
             list = em.createNamedQuery("Categories.findAll").getResultList();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
     }
-    
-    public List<Shippers> selectAllShippers(){
+
+    public List<Shippers> selectAllShippers() {
         List<Shippers> list = new ArrayList<Shippers>();
-        try{
+        try {
             list = em.createNamedQuery("Shippers.findAll").getResultList();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
     }
-    
-    public List<Products> selectAllProducts(){
+
+    public List<Products> selectAllProducts() {
         List<Products> list = new ArrayList<Products>();
-        try{
-            System.out.println("********************DAO list prod up******************************");
+        try {
             list = em.createNamedQuery("Products.findAll").getResultList();
             System.out.println("List size " + list.size());
-            System.out.println("********************DAO list prod down****************************");
-        }catch(Exception e){
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<OrderDetails> selectAllOrderDetails() {
+        List<OrderDetails> list = new ArrayList<OrderDetails>();
+        try {
+            list = em.createNamedQuery("OrderDetails.findAll").getResultList();
+            System.out.println(" ******************** List size " + list.size());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public List<Orders> selectAllOrders() {
+        List<Orders> list = new ArrayList<Orders>();
+        try {
+            list = em.createNamedQuery("Orders.findAll").getResultList();
+            System.out.println(" ******************** List size " + list.size());
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
