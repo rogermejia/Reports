@@ -11,6 +11,7 @@ import com.report.system.entities.Orders;
 import com.report.system.entities.Products;
 import com.report.system.entities.Shippers;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -51,7 +52,6 @@ public class CategoriesDao {
         List<Products> list = new ArrayList<Products>();
         try {
             list = em.createNamedQuery("Products.findAll").getResultList();
-            System.out.println("List size " + list.size());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -62,7 +62,17 @@ public class CategoriesDao {
         List<OrderDetails> list = new ArrayList<OrderDetails>();
         try {
             list = em.createNamedQuery("OrderDetails.findAll").getResultList();
-            System.out.println(" ******************** List size " + list.size());
+            System.out.print("     Unit Price     ");
+            System.out.print("     Quantity     ");
+            System.out.println("     Discount     ");
+            
+            for (OrderDetails o : list) {
+                System.out.print("     " +o.getUnitPrice() + "     ");
+                System.out.print("            " +o.getQuantity() + "     ");
+                System.out.println("         " +o.getDiscount());
+            }
+            System.out.println("   ");
+            System.out.println(" ******************** OrderDetails List size " + list.size());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -72,8 +82,9 @@ public class CategoriesDao {
     public List<Orders> selectAllOrders() {
         List<Orders> list = new ArrayList<Orders>();
         try {
+            System.out.println(" ******************** List Orders size ");
             list = em.createNamedQuery("Orders.findAll").getResultList();
-            System.out.println(" ******************** List size " + list.size());
+            System.out.println(" ******************** List Orders size " + list.size());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -15,8 +15,10 @@ import com.report.system.entities.Products;
 import com.report.system.entities.Shippers;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -34,19 +36,22 @@ public class ShippersControl implements Serializable {
     private List<OrderDetails> listOrderDetails;
     private List<Orders> listOrders;
 
+    @EJB
     private CategoriesDao sh;
 
     @PostConstruct
     public void init() {
+        sh = new CategoriesDao();
         listShip = new ArrayList<Shippers>();
         listCategories = new ArrayList<Categories>();
         listProducts = new ArrayList<Products>();
-        listOrderDetails = new ArrayList<OrderDetails>();
         listOrders = new ArrayList<Orders>();
-        sh = new CategoriesDao();
+        listOrderDetails = new ArrayList<OrderDetails>();
         listShippers();
         listCategories();
         listProducts();
+        listOrders();
+        //listOrderDetails();
     }
 
     public void listCategories() {
@@ -62,7 +67,9 @@ public class ShippersControl implements Serializable {
     }
 
     public void listOrderDetails() {
+        System.out.println("start time control" + new Date());
         listOrderDetails = sh.selectAllOrderDetails();
+        System.out.println("end time contro" + new Date());
     }
 
     public void listOrders() {
