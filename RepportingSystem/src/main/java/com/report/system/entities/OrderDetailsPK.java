@@ -77,7 +77,7 @@ public class OrderDetailsPK implements Serializable {
 
     @Override
     public String toString() {
-        return "com.report.system.dao.OrderDetailsPK[ orderID=" + orderID + ", productID=" + productID + " ]";
+        return "com.report.system.entities.OrderDetailsPK[ orderID=" + orderID + ", productID=" + productID + " ]";
     }
     
 }

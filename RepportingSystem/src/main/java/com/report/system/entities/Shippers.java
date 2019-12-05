@@ -107,7 +107,7 @@ public class Shippers implements Serializable {
 
     @Override
     public String toString() {
-        return "com.report.system.dao.Shippers[ shipperID=" + shipperID + " ]";
+        return "com.report.system.entities.Shippers[ shipperID=" + shipperID + " ]";
     }
     
 }

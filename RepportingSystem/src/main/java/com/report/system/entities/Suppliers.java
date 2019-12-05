@@ -6,6 +6,7 @@
 package com.report.system.entities;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,10 +16,12 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -86,6 +89,8 @@ public class Suppliers implements Serializable {
     @Size(max = 2147483647)
     @Column(name = "HomePage")
     private String homePage;
+    @OneToMany(mappedBy = "supplierID")
+    private List<Products> productsList;
 
     public Suppliers() {
     }
@@ -195,6 +200,15 @@ public class Suppliers implements Serializable {
         this.homePage = homePage;
     }
 
+    @XmlTransient
+    public List<Products> getProductsList() {
+        return productsList;
+    }
+
+    public void setProductsList(List<Products> productsList) {
+        this.productsList = productsList;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -217,7 +231,7 @@ public class Suppliers implements Serializable {
 
     @Override
     public String toString() {
-        return "com.report.system.dao.Suppliers[ supplierID=" + supplierID + " ]";
+        return "com.report.system.entities.Suppliers[ supplierID=" + supplierID + " ]";
     }
     
 }

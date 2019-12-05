@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -31,8 +33,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Products.findAll", query = "SELECT p FROM Products p")
     , @NamedQuery(name = "Products.findByProductID", query = "SELECT p FROM Products p WHERE p.productID = :productID")
     , @NamedQuery(name = "Products.findByProductName", query = "SELECT p FROM Products p WHERE p.productName = :productName")
-    , @NamedQuery(name = "Products.findBySupplierID", query = "SELECT p FROM Products p WHERE p.supplierID = :supplierID")
-    , @NamedQuery(name = "Products.findByCategoryID", query = "SELECT p FROM Products p WHERE p.categoryID = :categoryID")
     , @NamedQuery(name = "Products.findByQuantityPerUnit", query = "SELECT p FROM Products p WHERE p.quantityPerUnit = :quantityPerUnit")
     , @NamedQuery(name = "Products.findByUnitPrice", query = "SELECT p FROM Products p WHERE p.unitPrice = :unitPrice")
     , @NamedQuery(name = "Products.findByUnitsInStock", query = "SELECT p FROM Products p WHERE p.unitsInStock = :unitsInStock")
@@ -52,10 +52,6 @@ public class Products implements Serializable {
     @Size(min = 1, max = 40)
     @Column(name = "ProductName")
     private String productName;
-    @Column(name = "SupplierID")
-    private Integer supplierID;
-    @Column(name = "CategoryID")
-    private Integer categoryID;
     @Size(max = 20)
     @Column(name = "QuantityPerUnit")
     private String quantityPerUnit;
@@ -70,6 +66,12 @@ public class Products implements Serializable {
     private Integer reorderLevel;
     @Column(name = "Discontinued")
     private Boolean discontinued;
+    @JoinColumn(name = "SupplierID", referencedColumnName = "SupplierID")
+    @ManyToOne
+    private Suppliers supplierID;
+    @JoinColumn(name = "CategoryID", referencedColumnName = "CategoryID")
+    @ManyToOne
+    private Categories categoryID;
 
     public Products() {
     }
@@ -97,22 +99,6 @@ public class Products implements Serializable {
 
     public void setProductName(String productName) {
         this.productName = productName;
-    }
-
-    public Integer getSupplierID() {
-        return supplierID;
-    }
-
-    public void setSupplierID(Integer supplierID) {
-        this.supplierID = supplierID;
-    }
-
-    public Integer getCategoryID() {
-        return categoryID;
-    }
-
-    public void setCategoryID(Integer categoryID) {
-        this.categoryID = categoryID;
     }
 
     public String getQuantityPerUnit() {
@@ -163,6 +149,22 @@ public class Products implements Serializable {
         this.discontinued = discontinued;
     }
 
+    public Suppliers getSupplierID() {
+        return supplierID;
+    }
+
+    public void setSupplierID(Suppliers supplierID) {
+        this.supplierID = supplierID;
+    }
+
+    public Categories getCategoryID() {
+        return categoryID;
+    }
+
+    public void setCategoryID(Categories categoryID) {
+        this.categoryID = categoryID;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -185,7 +187,7 @@ public class Products implements Serializable {
 
     @Override
     public String toString() {
-        return "com.report.system.dao.Products[ productID=" + productID + " ]";
+        return "com.report.system.entities.Products[ productID=" + productID + " ]";
     }
     
 }

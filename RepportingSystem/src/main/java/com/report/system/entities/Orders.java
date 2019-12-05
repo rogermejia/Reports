@@ -232,7 +232,7 @@ public class Orders implements Serializable {
 
     @Override
     public String toString() {
-        return "com.report.system.dao.Orders[ orderID=" + orderID + " ]";
+        return "com.report.system.entities.Orders[ orderID=" + orderID + " ]";
     }
     
 }

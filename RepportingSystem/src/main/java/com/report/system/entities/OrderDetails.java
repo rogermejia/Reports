@@ -122,7 +122,7 @@ public class OrderDetails implements Serializable {
 
     @Override
     public String toString() {
-        return "com.report.system.dao.OrderDetails[ orderDetailsPK=" + orderDetailsPK + " ]";
+        return "com.report.system.entities.OrderDetails[ orderDetailsPK=" + orderDetailsPK + " ]";
     }
     
 }

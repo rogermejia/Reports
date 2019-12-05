@@ -279,7 +279,7 @@ public class Employees implements Serializable {
 
     @Override
     public String toString() {
-        return "com.report.system.dao.Employees[ employeeID=" + employeeID + " ]";
+        return "com.report.system.entities.Employees[ employeeID=" + employeeID + " ]";
     }
     
 }

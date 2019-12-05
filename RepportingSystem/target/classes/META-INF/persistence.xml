@@ -10,6 +10,14 @@
     <class>com.report.system.entities.Shippers</class>
     <class>com.report.system.entities.Orders</class>
     <class>com.report.system.entities.Suppliers</class>
+    <class>com.report.system.connection.Suppliers</class>
+    <class>com.report.system.connection.Shippers</class>
+    <class>com.report.system.connection.Orders</class>
+    <class>com.report.system.connection.Customers</class>
+    <class>com.report.system.connection.OrderDetails</class>
+    <class>com.report.system.connection.Employees</class>
+    <class>com.report.system.connection.Products</class>
+    <class>com.report.system.connection.Categories</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/northwind?zeroDateTimeBehavior=convertToNull"/>

@@ -226,7 +226,7 @@ public class Customers implements Serializable {
 
     @Override
     public String toString() {
-        return "com.report.system.dao.Customers[ customerID=" + customerID + " ]";
+        return "com.report.system.entities.Customers[ customerID=" + customerID + " ]";
     }
     
 }
